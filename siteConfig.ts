@@ -3,7 +3,7 @@
 export const siteConfig = {
   // 1. 网站标题与博主信息
   title: "SunSaiChao &雨中散步",
-  faviconUrl: "https://github.com/224617/Saichao-Sun/blob/main/images/20230131195033_25665.thumb.400_0.jpg?raw=true",
+  faviconUrl: "https://raw.githubusercontent.com/224617/SunSaiChao-images/refs/heads/main/20230131195033_25665.thumb.400_0.jpg?token=GHSAT0AAAAAAEFEHRECWZ5NBTDK6MWN5ABK2T6EP4A",
   authorName: "SunSaiChao",
   bio: "",
 
@@ -15,7 +15,7 @@ export const siteConfig = {
   navAfter: "雨中散步",
 
   // 2. 头像设置 (支持网络链接，或将图片放入 public 文件夹后使用 "/me.jpg")
-  avatarUrl: "https://raw.githubusercontent.com/224617/Saichao-Sun/refs/heads/main/images/20200420104722_gnjix.jpg",
+  avatarUrl: "https://raw.githubusercontent.com/224617/SunSaiChao-images/refs/heads/main/20200420104722_gnjix.jpg?token=GHSAT0AAAAAAEFEHRED26ZBVVLVGOCMRNCA2T6EPBA",
 
   // 3. 网站背景设置 (二选一)
   // 如果想用纯图片背景，请在下面 bgImage 写路径，并将 useGradient 设为 false
@@ -66,6 +66,6 @@ export const siteConfig = {
     maxOutputTokens: 150,
     temperature: 0.85,
   },
-  friendLinkApplyFormat: "名称：SunSaiChao &雨中散步\n简介：吃饭了吗今天\n链接：https://sunsaichao.cc.cd\n头像：https://raw.githubusercontent.com/224617/Saichao-Sun/refs/heads/main/images/20200420104722_gnjix.jpg",
+  friendLinkApplyFormat: "名称：SunSaiChao &雨中散步\n简介：吃饭了吗今天\n链接：https://sunsaichao.cc.cd\n头像：https://raw.githubusercontent.com/224617/SunSaiChao-images/refs/heads/main/20230131195033_25665.thumb.400_0.jpg?token=GHSAT0AAAAAAEFEHRECWZ5NBTDK6MWN5ABK2T6EP4A",
   enableLevelSystem: true,
 };
