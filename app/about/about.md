@@ -1,6 +1,6 @@
 ---
 title: 关于我
-date: '2026-03-31'
+date: '2026-03-31 22:28:25'
 tags: []
 mood: ''
 cover: https://bu.dusays.com/2026/03/24/69c23dc278c78.jpg
@@ -9,7 +9,7 @@ description: ''
 
 个人简介
 
-你好，我是 XingHuiSama。
+你好，我是 SunSaiChai。
 
 专注于**计算化学、人工智能与软件工程**的交叉应用。
 
