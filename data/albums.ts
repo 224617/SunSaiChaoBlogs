@@ -5,31 +5,31 @@ export interface Album { id: string; title: string; description: string; cover: 
 export const albums: Album[] = [
   {
     "title": "扫雷",
-    "cover": "https://raw.githubusercontent.com/224617/SunSaiChao-images/refs/heads/main/OIP.jpg?token=GHSAT0AAAAAAEFEHRECSUPOSAKQNYUTRO3S2T6ENVA",
+    "cover": "/saolei.jpg",
     "id": "album_1786638394639",
     "photos": [
       {
-        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/refs/heads/main/1786650651942.png?token=GHSAT0AAAAAAEFEHRECXVLGIKM2U3SUTCBO2T6EMUA",
+        "url": "/sl2445.jpg",
         "caption": "2445"
       },
       {
-        "caption": "1340",
-        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/refs/heads/main/1786650651947.jpg?token=GHSAT0AAAAAAEFEHRECP25OD7CCVTB2VI4I2T6EMCA"
+        "url": "sl1340.jpg",
+        "caption": "1340"
       },
       {
-        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/refs/heads/main/1786650651950.jpg?token=GHSAT0AAAAAAEFEHREDEHNFC7REZPPVPGKS2T6ELTA",
+        "url": "/sl1072.jpg",
         "caption": "1072"
       },
       {
-        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/refs/heads/main/1786650651951.jpg?token=GHSAT0AAAAAAEFEHREC7WGP2A3WEGQOUHPS2T6ELCQ",
+        "url": "/sl940.jpg",
         "caption": "940"
       },
       {
-        "caption": "727",
-        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/refs/heads/main/1786650651956.jpg?token=GHSAT0AAAAAAEFEHREDRGDOADOZDGTTI5BY2T6EKOA"
+        "url": "/sl727.jpg",
+        "caption": "727"
       },
       {
-        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/refs/heads/main/1786650651958.jpg?token=GHSAT0AAAAAAEFEHRECTJJUSZYXZLLSKQZU2T6EJQA",
+        "url": "sl587.jpg",
         "caption": "587"
       }
     ],
