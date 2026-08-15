@@ -3,7 +3,7 @@
 export const siteConfig = {
   // 1. 网站标题与博主信息
   title: "SunSaiChao &雨中散步",
-  faviconUrl: "/tubiao.jpg",
+  faviconUrl: "./tubiao.jpg",
   authorName: "SunSaiChao",
   bio: "",
 
