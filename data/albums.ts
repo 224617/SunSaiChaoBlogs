@@ -5,7 +5,7 @@ export interface Album { id: string; title: string; description: string; cover: 
 export const albums: Album[] = [
   {
     "title": "扫雷",
-    "cover": "/saolei.jpg",
+    "cover": "./saolei.jpg",
     "id": "album_1786638394639",
     "photos": [
       {
