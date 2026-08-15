@@ -9,6 +9,26 @@ export const albums: Album[] = [
     "id": "album_1786638394639",
     "photos": [
       {
+        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/914c0a6d8162665147b8510ef1855836959e4463/sl2445.jpg",
+        "caption": "2445"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/914c0a6d8162665147b8510ef1855836959e4463/sl1340.jpg",
+        "caption": "1340"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/914c0a6d8162665147b8510ef1855836959e4463/sl1072.jpg",
+        "caption": "1072"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/914c0a6d8162665147b8510ef1855836959e4463/sl940.jpg",
+        "caption": "940"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/914c0a6d8162665147b8510ef1855836959e4463/sl727.jpg",
+        "caption": "727"
+      },
+      {
         "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/914c0a6d8162665147b8510ef1855836959e4463/sl587.jpg",
         "caption": "587"
       }
