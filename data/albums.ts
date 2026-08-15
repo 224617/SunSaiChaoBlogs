@@ -5,31 +5,11 @@ export interface Album { id: string; title: string; description: string; cover: 
 export const albums: Album[] = [
   {
     "title": "扫雷",
-    "cover": "https://raw.githubusercontent.com/224617/SunSaiChao-images/8f96af4e777af55dfa76910e95ee1fa48f335682/OIP.jpg",
+    "cover": "https://raw.githubusercontent.com/224617/SunSaiChao-images/914c0a6d8162665147b8510ef1855836959e4463/saolei.jpg",
     "id": "album_1786638394639",
     "photos": [
       {
-        "url": "/sl2445.jpg",
-        "caption": "2445"
-      },
-      {
-        "url": "sl1340.jpg",
-        "caption": "1340"
-      },
-      {
-        "url": "/sl1072.jpg",
-        "caption": "1072"
-      },
-      {
-        "url": "/sl940.jpg",
-        "caption": "940"
-      },
-      {
-        "url": "/sl727.jpg",
-        "caption": "727"
-      },
-      {
-        "url": "sl587.jpg",
+        "url": "https://raw.githubusercontent.com/224617/SunSaiChao-images/914c0a6d8162665147b8510ef1855836959e4463/sl587.jpg",
         "caption": "587"
       }
     ],
