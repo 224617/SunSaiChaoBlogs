@@ -3,7 +3,7 @@
 export const siteConfig = {
   // 1. 网站标题与博主信息
   title: "SunSaiChao &雨中散步",
-  faviconUrl: "https://raw.githubusercontent.com/224617/SunSaiChao-images/914c0a6d8162665147b8510ef1855836959e4463/tubiao.jpg",
+  faviconUrl: "https://raw-proxy.sunsai4617.workers.dev/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/tubiao.jpg",
   authorName: "SunSaiChao",
   bio: "",
 
@@ -15,7 +15,7 @@ export const siteConfig = {
   navAfter: "雨中散步",
 
   // 2. 头像设置 (支持网络链接，或将图片放入 public 文件夹后使用 "/me.jpg")
-  avatarUrl: "https://raw.githubusercontent.com/224617/SunSaiChao-images/914c0a6d8162665147b8510ef1855836959e4463/touxiang.jpg",
+  avatarUrl: "https://raw-proxy.sunsai4617.workers.dev/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/touxiang.jpg",
 
   // 3. 网站背景设置 (二选一)
   // 如果想用纯图片背景，请在下面 bgImage 写路径，并将 useGradient 设为 false
