@@ -50,7 +50,7 @@ export const siteConfig = {
   gitalkConfig: {
     clientID: "Ov23li9YpQq5e4xMX2Vb",
     clientSecret: "bb362c11d7fc9cc826781bb23abb7fa7a0f75fc6",
-    repo: "SunSaiChaoBlogs",
+    repo: "pinglun",
     owner: "224617",
     admin: ["224617"],
   },
