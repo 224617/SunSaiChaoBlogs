@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     // 调用 siteConfig 的参数
     const modelId = siteConfig.geminiConfig.modelId;
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
-
+    
     console.log(`📡 [2/5] 正在呼叫模型: ${modelId}`);
 
     const response = await fetch(url, {
