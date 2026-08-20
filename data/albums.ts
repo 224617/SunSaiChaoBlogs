@@ -43,6 +43,9 @@ export const albums: Album[] = [
     "date": "2026.01",
     "photos": [
       {
+        "url": "/tabby-cat.png"
+      },
+      {
         "url": "扫雷"
       },
       {
