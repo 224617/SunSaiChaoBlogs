@@ -5,31 +5,11 @@ export interface Album { id: string; title: string; description: string; cover: 
 export const albums: Album[] = [
   {
     "title": "扫雷",
-    "cover": "https://raw-proxy.sunsai4617.workers.dev/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/saolei.jpg",
+    "cover": "https://tuku.sunsaichao.cc.cd/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/saolei.jpg",
     "id": "album_1786638394639",
     "photos": [
       {
-        "url": "https://raw-proxy.sunsai4617.workers.dev/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/sl2445.jpg",
-        "caption": "2445"
-      },
-      {
-        "url": "https://raw-proxy.sunsai4617.workers.dev/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/sl1340.jpg",
-        "caption": "1340"
-      },
-      {
-        "url": "https://raw-proxy.sunsai4617.workers.dev/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/sl1072.jpg",
-        "caption": "1072"
-      },
-      {
-        "url": "https://raw-proxy.sunsai4617.workers.dev/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/sl940.jpg",
-        "caption": "940"
-      },
-      {
-        "url": "https://raw-proxy.sunsai4617.workers.dev/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/sl727.jpg",
-        "caption": "727"
-      },
-      {
-        "url": "https://raw-proxy.sunsai4617.workers.dev/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/sl587.jpg",
+        "url": "https://tuku.sunsaichao.cc.cd/224617/SunSaiChao-images/6b6e5c6cfc171194748f00362cb6255237ea802f/sl587.jpg",
         "caption": "587"
       }
     ],
