@@ -1,5 +1,5 @@
 // app/api/chat/route.ts
-import { siteConfig } from '../../../siteConfig'; // 确保这里的路径指向你的 siteConfig
+import { siteConfig } from '@/siteConfig'; // 确保这里的路径指向你的 siteConfig
 
 export const runtime = 'edge';
 
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     // 调用 siteConfig 的参数
     const modelId = siteConfig.geminiConfig.modelId;
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
-    
+
     console.log(`📡 [2/5] 正在呼叫模型: ${modelId}`);
 
     const response = await fetch(url, {
