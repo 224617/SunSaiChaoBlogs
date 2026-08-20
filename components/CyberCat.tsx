@@ -1,69 +1,55 @@
-// app/api/chat/route.ts
-// 使用绝对清晰的相对路径，彻底避免 @/ 别名找不到的问题
-import { siteConfig } from '../../../siteConfig';
+"use client";
 
-export async function POST(req: Request) {
-  try {
-    const { message } = await req.json();
-    const apiKey = (process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY || '').trim();
+import React, { useState } from 'react';
 
-    if (!apiKey) {
-      return new Response(JSON.stringify({ error: "Key missing" }), {
-        status: 500,
+export default function CyberCat() {
+  const [input, setInput] = useState('');
+  const [reply, setReply] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSend = async () => {
+    if (!input.trim() || loading) return;
+    setLoading(true);
+    setReply('思考中喵...');
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: input }),
       });
+      const data = await res.json();
+      setReply(data.reply || data.error || '出错了喵');
+    } catch (err) {
+      setReply('网络请求失败喵');
+    } finally {
+      setLoading(false);
     }
+  };
 
-    const modelId = siteConfig.geminiConfig?.modelId || 'gemini-1.5-flash';
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
-
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        systemInstruction: {
-          parts: [{ text: siteConfig.geminiConfig?.systemPrompt || "你是一只可爱的猫咪。" }]
-        },
-        contents: [{
-          parts: [{ text: message }]
-        }],
-        generationConfig: {
-          maxOutputTokens: siteConfig.geminiConfig?.maxOutputTokens || 300,
-          temperature: siteConfig.geminiConfig?.temperature || 0.7,
-        }
-      })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      return new Response(JSON.stringify({
-        error: `Gemini API 错误: ${response.status}`,
-        details: data.error?.message || "未知错误"
-      }), {
-        status: response.status,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
-
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "本喵现在不想理你喵...";
-
-    return new Response(JSON.stringify({ reply }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    });
-
-  } catch (error: any) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-}
-
-export async function GET() {
-  return new Response(JSON.stringify({ status: "Ready", model: "Gemini API Route" }), {
-    status: 200,
-    headers: { 'Content-Type': 'application/json' },
-  });
+  return (
+    <div className="p-4 border rounded-lg max-w-sm bg-white/80 dark:bg-zinc-800/80 backdrop-blur">
+      <div className="mb-2 text-sm font-bold">🐱 桌宠喵</div>
+      <div className="min-h-[60px] p-2 bg-zinc-100 dark:bg-zinc-700 rounded text-sm mb-3">
+        {reply || '你好呀！想跟我聊什么喵？'}
+      </div>
+      <div className="flex gap-2">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="给猫咪发消息..."
+          className="flex-1 px-2 py-1 border rounded text-sm dark:bg-zinc-900"
+          onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+        />
+        <button
+          onClick={handleSend}
+          disabled={loading}
+          className="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600 disabled:opacity-50"
+        >
+          发送
+        </button>
+      </div>
+    </div>
+  );
 }
