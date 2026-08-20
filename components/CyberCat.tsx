@@ -1,5 +1,6 @@
 // app/api/chat/route.ts
-import { siteConfig } from '@/siteConfig';
+// 使用绝对清晰的相对路径，彻底避免 @/ 别名找不到的问题
+import { siteConfig } from '../../../siteConfig';
 
 export async function POST(req: Request) {
   try {
@@ -13,7 +14,7 @@ export async function POST(req: Request) {
       });
     }
 
-    const modelId = siteConfig.geminiConfig.modelId || 'gemini-1.5-flash';
+    const modelId = siteConfig.geminiConfig?.modelId || 'gemini-1.5-flash';
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
 
     const response = await fetch(url, {
@@ -21,14 +22,14 @@ export async function POST(req: Request) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         systemInstruction: {
-          parts: [{ text: siteConfig.geminiConfig.systemPrompt }]
+          parts: [{ text: siteConfig.geminiConfig?.systemPrompt || "你是一只可爱的猫咪。" }]
         },
         contents: [{
           parts: [{ text: message }]
         }],
         generationConfig: {
-          maxOutputTokens: siteConfig.geminiConfig.maxOutputTokens,
-          temperature: siteConfig.geminiConfig.temperature,
+          maxOutputTokens: siteConfig.geminiConfig?.maxOutputTokens || 300,
+          temperature: siteConfig.geminiConfig?.temperature || 0.7,
         }
       })
     });
