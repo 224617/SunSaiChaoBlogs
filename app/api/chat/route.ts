@@ -14,7 +14,8 @@ export async function POST(req: Request) {
     }
 
     // 锁定为 gemini-1.5-flash，解决 404 问题
-    const modelId = 'gemini-1.5-pro';
+       // 换成兼容性最好的 gemini-1.5-flash
+    const modelId = 'gemini-1.5-flash';
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
 
     const response = await fetch(url, {
@@ -31,6 +32,9 @@ export async function POST(req: Request) {
     const data = await response.json();
 
     if (!response.ok) {
+      // 这里的 log 会把 Google 返回的具体错误明细打印到 Vercel 日志里
+      console.error("Gemini 详细报错信息:", JSON.stringify(data));
+      
       return new Response(JSON.stringify({
         error: `Gemini API 错误: ${response.status}`,
         details: data.error?.message || "未知错误"
