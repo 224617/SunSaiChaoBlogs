@@ -13,7 +13,7 @@ export async function POST(req: Request) {
       });
     }
 
-    // 强制指定为官方支持的标准模型，避免 siteConfig 配置错误引发 404
+    // 锁定为 gemini-1.5-flash，解决 404 问题
     const modelId = 'gemini-1.5-flash';
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
 
