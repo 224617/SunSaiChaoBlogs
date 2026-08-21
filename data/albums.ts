@@ -43,9 +43,6 @@ export const albums: Album[] = [
     "date": "2026.01",
     "photos": [
       {
-        "url": "扫雷"
-      },
-      {
         "url": "https://bu.dusays.com/2026/03/31/69cb69bb530d8.jpg",
         "caption": "原来的人"
       },
