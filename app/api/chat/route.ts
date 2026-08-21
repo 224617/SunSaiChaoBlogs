@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     }
 
     // 锁定为 gemini-1.5-flash，解决 404 问题
-    const modelId = 'gemini-1.5-flash';
+    const modelId = 'gemini-1.5-pro';
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
 
     const response = await fetch(url, {
