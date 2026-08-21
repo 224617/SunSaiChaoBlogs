@@ -13,7 +13,8 @@ export async function POST(req: Request) {
       });
     }
 
-    const modelId = siteConfig?.geminiConfig?.modelId || 'gemini-1.5-flash';
+    // 强制指定为官方支持的标准模型，避免 siteConfig 配置错误引发 404
+    const modelId = 'gemini-1.5-flash';
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
 
     const response = await fetch(url, {
