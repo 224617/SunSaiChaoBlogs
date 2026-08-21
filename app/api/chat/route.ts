@@ -1,67 +1,52 @@
 // @ts-nocheck
-import { siteConfig } from '@/siteConfig';
-
 export async function POST(req: Request) {
   try {
     const { message } = await req.json();
-    const apiKey = (process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY || '').trim();
 
-    if (!apiKey) {
-      return new Response(JSON.stringify({ error: "Key missing" }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
+    // 1. 硬编码 Key
+    const apiKey = process.env.GEMINI_API_KEY || '';
 
-    // 锁定为 gemini-1.5-flash，解决 404 问题
-       // 换成兼容性最好的 gemini-1.5-flash
-    const modelId = 'gemini-1.5-flash';
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
+    // 2. 使用标准的 v1beta gemini-1.5-flash endpoint
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: message }] }],
-        systemInstruction: {
-          parts: [{ text: siteConfig?.geminiConfig?.systemPrompt || "你是一只可爱的猫咪。" }]
-        }
+        contents: [
+          {
+            parts: [{ text: message || "你好" }]
+          }
+        ]
       })
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      // 这里的 log 会把 Google 返回的具体错误明细打印到 Vercel 日志里
-      console.error("Gemini 详细报错信息:", JSON.stringify(data));
+      // 打印完整错误到控制台
+      console.error("【Gemini API 完整报错】:", JSON.stringify(data));
       
-      return new Response(JSON.stringify({
-        error: `Gemini API 错误: ${response.status}`,
-        details: data.error?.message || "未知错误"
-      }), {
-        status: response.status,
-        headers: { 'Content-Type': 'application/json' },
+      // 直接把 Google 返回的具体错误文字吐给前端，方便直观查看
+      const errMsg = data.error?.message || "请求 Gemini 失败";
+      return new Response(JSON.stringify({ reply: `API报错: ${errMsg}` }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "本喵现在不想理你喵...";
+    const replyText = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
-    return new Response(JSON.stringify({ reply }), {
+    return new Response(JSON.stringify({ reply: replyText || "喵~" }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
 
-  } catch (error) {
-    return new Response(JSON.stringify({ error: "Server Error" }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
+  } catch (err: any) {
+    console.error("【服务器运行异常】:", err);
+    return new Response(JSON.stringify({ reply: `程序异常: ${err.message}` }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
     });
   }
-}
-
-export async function GET() {
-  return new Response(JSON.stringify({ status: "Ready" }), {
-    status: 200,
-    headers: { 'Content-Type': 'application/json' },
-  });
 }
